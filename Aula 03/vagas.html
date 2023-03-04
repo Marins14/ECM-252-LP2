@@ -9,15 +9,17 @@
     <title>Vaga de Emprego</title>
   </head>
   <body>
-    <div itemscope itemtype="http://schema.org/JobPosting">
+    <div itemscope itemtype="https://schema.org/JobPosting">
       <h1 itemprop="title">Desenvolvedor Web</h1>
       <p><span>Empresa:</span><span itemprop="hiringOrganization">MarinsJobs</span></p>
-      <p><span>Localização:</span> <span itemprop="jobLocation">São Paulo, SP</span></p>
-      <p><span>Data de publicação:</span> <span itemprop="datePosted">04/03/23</span></p>
+      <span>Localização:</span> <span itemscope itemtype="https://schema.org/Place" itemprop="jobLocation">
+        <p itemscope itemtype="https://schema.org/PostalAddress" itemprop="address">Rua Teste, nº 456,São Paulo,SP</p>
+      </span>
+      <p><span>Data de publicação:</span> <span itemprop="datePosted">2023-03-04T14:30:00Z</span></p>
       <p><span>Descrição:</span> <span itemprop="description">Estamos procurando um desenvolvedor web para se juntar à nossa equipe. O candidato ideal terá experiência em HTML, CSS, JavaScript e outras tecnologias web.</span></p>
       <p><span>Requisitos:</span> <span itemprop="qualifications">Bacharelado em Ciência da Computação ou experiência equivalente.</span></p>
-      <p><span>Salário:</span> <span itemprop="baseSalary" itemscope itemtype="http://schema.org/MonetaryAmount"><span itemprop="currency">BRL</span><span itemprop="value">4500.00</span> por mês</span></p>
-      <p><span>Como se candidatar:</span> Envie seu currículo para <span itemprop="email">jobs@MarinsJobs.com</span></p>
+      <p><span>Salário:</span> <span itemprop="baseSalary" itemscope itemtype="https://schema.org/MonetaryAmount"><span itemprop="currency">BRL</span><span itemprop="value">4500.00</span> por mês</span></p>
+      <p><span>Como se candidatar:</span> Envie seu currículo para infojobs@email.com</p>
     </div>
   </body>
 </html>
