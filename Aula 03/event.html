@@ -5,24 +5,27 @@
     <title>Evento</title>
 </head>
 <body>
-    <div class="evento" itemscope itemtype="https://schema.org/Event">
-        <div class="data do evento" itemprop="startDate" content="02/12/2023T10:30">
-            02 de dezembro de 23
+    <div class="event-wrapper" itemscope itemtype="https://schema.org/Event">
+        <div class="event-date" itemprop="startDate" content="02-12-2023T10:00">
+            02/12/23
         </div>
-        <div class="nome do evento" itemprop="name">
-            CCXP
+        <div class="event-title" itemprop="name">
+            Comic Con
         </div>
-        <div class="local" itemprop="local" itemscope itemtype="https://schema.org/Place">
-            <span itemprop="nome">CommicCon</span>
-            <div class="endereço" itemprop="endereço" itemscope itemtype="https://schema.org/PostalAddress">
-                <span itemprop="Rua">Rodovia dos Imigrantes, 1,5 km - Vila Água Funda</span><br>
-                <span itemprop="Rua">São Paulo</span>, <span itemprop="região">SP</span> <span itemprop="CEP">04329-900</span>
+        <meta itemprop="eventStatus" content="https://schema.org/EventRescheduled"><span itemprop="previousStartDate" content="02-12-23T21:30">(começará dia 02/12/23)</span>
+        <div class="event-venue" itemprop="location" itemscope itemtype="https://schema.org/Place">
+            <span itemprop="name">CCXP</span>
+            <div class="address" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                <span itemprop="streetAddress">Rodovia dos Imigrantes, 1,5 km - Vila Água Funda</span><br>
+                <span itemprop="addressLocality">São Paulo</span>, <span itemprop="addressRegion">SP</span> <span itemprop="postalCode">04329-900</span>
             </div>
         </div>
-        <div class="incio do evento">9:30 AM</div>
+        <div class="event-time">
+            10:00 AM
+        </div>
         <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
-            <div class="preço" itemprop="price" content="13.00">R$200.00</div>
-            <meta itemprop="preço" content="R$"><a itemprop="url" href="http://www.ticketfly.com/purchase/309433">ingressos</a>
+            <div class="event-price" itemprop="price" content="13.00">R$200.00</div>
+            <meta itemprop="priceCurrency" content="R$"><a itemprop="url" href="http://www.ticketfly.com/purchase/309433">Ingressos</a>
         </div>
     </div>
 </body>
