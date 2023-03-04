@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Forms</title>
+</head>
+<body>
+    <form>
+    <!-- <label for="primeiro nome">Primeiro Nome</label> -->
+        <!-- input{type=text} -->
+        <!-- <input id ="primeiro nome" type="text"> -->
+        <label>
+            Primeiro nome:
+            <input type="text">
+        </label>
+        <label>
+            Sobrenome:
+            <input type="text">
+        </label>
+        <label>
+            E-mail
+        <input type="email">
+        </label>
+        <label>
+            Telefone:
+            <input type="tel">
+        </label>
+
+        <label>
+            Cor: 
+            <input type="color">
+        </label>
+        <label>
+            Arquivo: 
+            <input type="file">
+        </label>
+        <textarea id="mensagem" cols="30" rows="10"></textarea>
+        <!-- select>option*4 -->
+        <select>
+            <option>São Paulo</option>
+            <option>Mato Grosso</option>
+            <option>Rio de Janeiro</option>
+            <option>Espirito Santo</option>
+        </select>
+        <fieldset>
+            <legend>Escolha um veiculo</legend>
+            <input id ="XRE" type="radio" name = "veiculo"><label>XRE</label>
+            <input id ="LANDER" type="radio" name = "veiculo"><label>LANDER</label>
+            <input id ="CG" type="radio" name = "veiculo"><label>CG</label>
+            <input id ="BIZ" type="radio" name = "veiculo"><label>BIZ</label>
+            <input id ="FACTOR" type="radio" name = "veiculo"><label>FACTOR</label>
+        </fieldset>
+        <br><br>
+
+        <fieldset>
+            <legend>Quais cores você gosta? </legend>
+            <input type="checkbox"
+            id = "vermelho"
+            name = "cor"   
+            ><label for="vermelho">Vermelho</label>
+            <input type="checkbox"
+            id = "amarelo"
+            name = "cor"
+            ><label for="amarelo">Amarelo</label>
+            <input type="checkbox"
+            id = "preto"
+            name = "cor"
+            ><label for="Preto">Preto</label>
+        </fieldset>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
