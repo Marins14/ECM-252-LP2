@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Efeito Cascata - Especificidade</title>
+    <link rel="stylesheet" href="cascata_especicidade.css">
+    <!-- Quem prevalece é quem esta por ultimo -->
+    <style>
+        main,article{
+            border: 1px solid black; 
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <!-- article>p#titulo.descricao{ALgoritmo De especificidade em CSS} -->
+        <article>
+            <p id="titulo" class="descricao">Algoritmo De especificidade em CSS</p>
+        </article>
+    </main>
+</body>
+</html>
