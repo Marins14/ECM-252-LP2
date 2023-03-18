@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>BoxSizing</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .caixa1,.caixa2{
+            width: 300px;
+            background-color: #CCC;
+            /* border:1px solid black; */
+        }
+        .caixa1{
+            border:5px solid black;
+            padding:50px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <p class="caixa1">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, reiciendis
+    </p>
+    <p class="caixa2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, quisquam!</p>
+</body>
+</html>
