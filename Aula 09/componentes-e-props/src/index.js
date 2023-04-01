@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
+import Pedido from './pedido.js'
 
 const App = ()=>(
     <div className='container border rounded mt-2'>
@@ -12,48 +13,22 @@ const App = ()=>(
         </div>
         <div className = 'row'>
             <div className = 'col-12 col-lg-6 col-xxl-4 my-2'>
-                <div className="card">
-                    <div className="card-header text-muted">22/04/2023</div>
-                    <div className="card-body d-flex">
-                        <div className="d-flex align-items-center">
-                            <i className="fas fa-ghost fa-2x"></i>
-                        </div>
-                        <div className="flex-grown-1 ms-2 border">
-                            <h4 className="text-center">SSD</h4>
-                            <p className="text-center">SSD-Kingston A400 -SATA</p>
-                        </div>
-                    </div>
-
-                </div>
+            <Pedido data="22/04/2023" 
+            icone="fas fa-ghost fa 2x"
+            titulo = "SSD"
+            descricao = "SSD Kinsgton A400 - SATA"  />
             </div>
             <div className = 'col-12 col-lg-6 col-xxl-4 my-2'>
-            <div className="card">
-                    <div className="card-header text-muted">26/04/2023</div>
-                    <div className="card-body d-flex">
-                        <div className="d-flex align-items-center">
-                            <i className="fas fa-book fa-2x"></i>
-                        </div>
-                        <div className="flex-grown-1 ms-2 border">
-                            <h4 className="text-center">Livro</h4>
-                            <p className="text-center">Concrete Mathematics - Donald Knuth</p>
-                        </div>
-                    </div>
-
-                </div>
+            <Pedido data="23/04/2023" 
+            icone="fas fa-book fa 2x"
+            titulo = "Livro"
+            descricao = "Concrete Mathematics - Donald Knuth"  />
             </div>
             <div className = 'col-12 col-lg-6 col-xxl-4 my-2'>
-            <div className="card">
-                    <div className="card-header text-muted">27/04/2023</div>
-                    <div className="card-body d-flex">
-                        <div className="d-flex align-items-center">
-                            <i className="fas fa-laptop fa-2x"></i>
-                        </div>
-                        <div className="flex-grown-1 ms-2 border">
-                            <h4 className="text-center">Notebook</h4>
-                            <p className="text-center">Dell - 8GB -256GB </p>
-                        </div>
-                    </div>
-                </div>
+            <Pedido data="26/04/2023" 
+            icone="fas fa-laptop fa 2x"
+            titulo = "Laptop"
+            descricao = "Notebook DELL - 8gb - 256GB"  /> 
             </div>
         </div>
     </div>
