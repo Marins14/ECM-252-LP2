@@ -1,31 +1,44 @@
-import React, {useState} from 'react'
-import {InputText} from 'primereact/inputtext'
-import { Button} from 'primereact/button'
+import React, { useState } from 'react'
+//useState é um hook (A partir da versão 16.8)
+import { InputText } from 'primereact/inputtext'
+import { Button } from 'primereact/button'
 
-const busca = (props) => {
-      // const lista = useState('')
+const Busca = (props) => {
+    // const lista = useState('')
     // const termoDeBusca = lista[0]
-    // const setTermodeBusca = lista[1] 
-    const [termoDeBusca, setTermodeBusca] = useState('') 
-  return(
-    <div className="flex flex-column">
-        <span className="p-input-icon-left w-full">
-            <i className="pi pi-search">
-                <InputText
-                 className='w-full'
-                 placeholder={props.dica}
-                 />
-            </i>
-        </span>
-        <Button
-          label='OK'
-          className='p-button-outlined mt-2'/>
-    </div>
-  )
+    // const setTermoDeBusca = lista[1]
+    const [termoDeBusca, setTermoDeBusca] = useState('')
+    const onTermoAlterado = (event) => {
+        setTermoDeBusca(event.target.value)
+    }
+    const onFormSubmit = (event)=>{
+        event.preventDefault()
+
+    }
+    return (
+        <form onFormSubmit='onFormSubmit'> 
+            <div className="flex flex-column">
+            <span className="p-input-icon-left w-full">
+                <i className="pi pi-search"/>
+                    <InputText
+                        className="w-full"
+                        placeholder={props.dica}
+                        onChange={onTermoAlterado}
+                        value = {termoDeBusca}
+                    />
+            </span>
+            <Button
+                label='OK'
+                className="p-button-outlined mt-2"
+            />
+        </div>
+        </form>
+        
+    )
 }
 
-busca.defaultProps = {
-    dica: 'Digite algo q deseja ver....'
+Busca.defaultProps = {
+    dica: 'Digite algo que deseja ver.'
 }
 
-export default busca
+export default Busca
