@@ -1,11 +1,12 @@
 import React from 'react'
 import Imagem from './Imagem'
-const ListaImagem = ({pics}) => {
+const ListaImagem = ({pics,imgStyle}) => {
   return (
     pics.map((pic)=>{
         return(
             <Imagem
-            url = {pic.src.small}
+            imgStyle={imgStyle}
+            url = {pic.src.medium}
             alt = {pic.alt}
             />
         )

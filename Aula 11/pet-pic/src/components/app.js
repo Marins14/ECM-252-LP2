@@ -8,19 +8,32 @@ import env from 'react-dotenv'
 import { createClient } from 'pexels'
 import ListaImagem from './ListaImagem'
 import PexelsLogo from './PexelsLogo'
+import PexelsClient from '../utils/PexelsClient'
 
 class App extends React.Component {
-  client = null 
   state = {pics: []}
+  
   componentDidMount(){
     this.client = createClient(env.PEXELS_KEY)
   }
-  onBuscaRealizada = async (termo) => {
-    const result = await this.client.photos.search({
-      query: termo,
-      per_page: 50
+  //client = null
+  // onBuscaRealizada = async (termo) => {
+  //   const result = await this.client.photos.search({
+  //     query: termo,
+  //     per_page: 50
+  //   })
+  //   this.setState({pics: result.photos})
+  // }
+  onBuscaRealizada = (termo) => {
+    PexelsClient.get('/search', {
+      params: {query: termo, per_page: 30}
     })
-    this.setState({pics: result.photos})
+    .then(result => {
+      this.setState({pics: result.data.photos})
+    })
+    .catch(e=>{
+      console.log(e);
+    })
   }
     render() {
       return (
@@ -31,11 +44,14 @@ class App extends React.Component {
           <div className="col-12">
             <h1>Exibir uma lista de...</h1>
           </div>
-          <div className="col-8">
+          <div className="col-12">
             <Busca onBuscaRealizada={this.onBuscaRealizada} />
           </div>
-          <div className="col-8">
-            <ListaImagem pics = {this.state.pics}/>
+          <div className="col-12">
+            <div className="grid">
+              <ListaImagem pics = {this.state.pics}
+              imgStyle = {'col-12 md:col-6 lg:col-4 xlg:col-3'}/>
+            </div>
           </div>
         </div>
     )
