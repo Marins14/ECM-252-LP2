@@ -16,7 +16,7 @@ const Busca = ({dica, onBuscaRealizada}) => {
         onBuscaRealizada(termoDeBusca)
     }
     return (
-        <form onFormSubmit='onFormSubmit'> 
+        <form onSubmit={onFormSubmit}> 
             <div className="flex flex-column">
             <span className="p-input-icon-left w-full">
                 <i className="pi pi-search"/>

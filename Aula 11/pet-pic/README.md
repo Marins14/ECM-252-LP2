@@ -72,3 +72,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Config git commit no vscode
 ``` git config --global core.editor "code --wait" ```
+
+## configurando VS como commit padrão 
+- git config --global core.editor "code --wait"
