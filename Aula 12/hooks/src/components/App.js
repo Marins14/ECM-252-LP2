@@ -3,7 +3,6 @@
 import React from 'react'
 import Accordion from './Accordion'
 
-
 const itens =[
     {
         titulo: 'Java',
