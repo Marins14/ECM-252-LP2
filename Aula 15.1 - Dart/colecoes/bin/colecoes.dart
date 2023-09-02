@@ -1,3 +1,43 @@
+void main(){
+  //coleções
+  // titulo,genero, notas
+  var idadePedro = 17;
+  var idadeMaria = 19;
+  var idadeJoao = 22;
+  var somenteMaior = [
+    'Cristina',
+    if(idadePedro >=18) 'Pedro',
+    if(idadeMaria >= 18) 'Maria' else 'nada',
+    idadeJoao >=18 ? 'João' : 'nada'
+  ];
+  print(somenteMaior);
+  var nomes1 = ['Jonas','Matheus'];
+  var nomes2 = ['Cristina','Joao',
+  for (final nome in nomes1)nome];
+  print(nomes2);
+  var nomes3 = [
+    'Jonas Brothers', 
+    ...nomes1, // operador spread
+    ...nomes2
+  ];
+  print(nomes3);
+  // print(somenteMaior);
+  // var filme = {
+  //   'titulo':'Titanic',
+  //   'genero': 'Romance',
+  //   'notas': [5,1,2,5]
+  // };
+  // var filme2 = {
+  //   'titulo': "Star Wars",
+  //   'genero': 'Ficção Cientifica',
+  //   'notas': [5,2,2,2]
+  // };
+  // var filmes = [filme,filme2];
+  // print(filmes); 
+}
+
+
+
 // class Girafa{
 
 // }
@@ -6,54 +46,54 @@
 
 // }
 
-import 'dart:io';
-void main() {
-  var contato = {};
-  for (;;) {
-    int selected;
-    do {
-      print("\t Bem vindo a lista de contatos! ");
-      print("\t Escolha uma das opções abaixo");
-      print("\t 1 - Cadastrar");
-      print("\t 2 - Exibir");
-      print("\t 3 - Update Usuário");
-      print("\t 4 - Deletar");
-      print("\t 5 - Sair");
-      selected = int.parse(stdin.readLineSync()!);
-    } while (selected < 1 || selected > 5);
-    if (selected == 5) {
-      print("Obrigado! Até mais");
-      exit(10);
-    } else {
-      if (selected == 1) {
-        print("Digite o usuário: ");
-        var user = (stdin.readLineSync()).toString();
-        print("Digite o telefone: ");
-        var tel = stdin.readLineSync().toString();
-        contato.addAll({user: tel});
-        //print(contato.runtimeType);
-        //print(contato);
-      }
-      if (selected == 2) {
-        print("Temos os contatos salvos \n $contato");
-      }
-      if (selected == 3) {
-        print("Digite o usuário a ser modificado: ");
-        var usermod = stdin.readLineSync().toString();
-        print("Qual o novo telefone ?");
-        var newnumber = stdin.readLineSync().toString();
-        contato.update(usermod, (value) => newnumber);
-      }
-    }
-    if (selected == 4) {
-      print("Digite o usuário a ser deletado: ");
-      var deluser = stdin.readLineSync().toString();
-      contato.remove(deluser);
-    }
-    print('************************************ \n');
-    sleep(Duration(seconds: 1));
-  }
-}
+// import 'dart:io';
+// void main() {
+//   var contato = {};
+//   for (;;) {
+//     int selected;
+//     do {
+//       print("\t Bem vindo a lista de contatos! ");
+//       print("\t Escolha uma das opções abaixo");
+//       print("\t 1 - Cadastrar");
+//       print("\t 2 - Exibir");
+//       print("\t 3 - Update Usuário");
+//       print("\t 4 - Deletar");
+//       print("\t 5 - Sair");
+//       selected = int.parse(stdin.readLineSync()!);
+//     } while (selected < 1 || selected > 5);
+//     if (selected == 5) {
+//       print("Obrigado! Até mais");
+//       exit(10);
+//     } else {
+//       if (selected == 1) {
+//         print("Digite o usuário: ");
+//         var user = (stdin.readLineSync()).toString();
+//         print("Digite o telefone: ");
+//         var tel = stdin.readLineSync().toString();
+//         contato.addAll({user: tel});
+//         //print(contato.runtimeType);
+//         //print(contato);
+//       }
+//       if (selected == 2) {
+//         print("Temos os contatos salvos \n $contato");
+//       }
+//       if (selected == 3) {
+//         print("Digite o usuário a ser modificado: ");
+//         var usermod = stdin.readLineSync().toString();
+//         print("Qual o novo telefone ?");
+//         var newnumber = stdin.readLineSync().toString();
+//         contato.update(usermod, (value) => newnumber);
+//       }
+//     }
+//     if (selected == 4) {
+//       print("Digite o usuário a ser deletado: ");
+//       var deluser = stdin.readLineSync().toString();
+//       contato.remove(deluser);
+//     }
+//     print('************************************ \n');
+//     sleep(Duration(seconds: 1));
+//   }
+// }
   // key, values, entries
   // var pessoa = <String, Object>{
   //   'nome': 'Ana',
