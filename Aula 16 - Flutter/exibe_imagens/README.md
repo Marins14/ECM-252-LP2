@@ -8,7 +8,7 @@ A new Flutter project.
 - full restart: CTRL + C 
 - genymotion.com/personal-use - emulador 
 
-
+- para requisições flutter pub add http
 
 
 
