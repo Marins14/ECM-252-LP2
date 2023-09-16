@@ -1,6 +1,17 @@
 # exibe_imagens
-
+# Caso de problemas de dependencia 
+`flutter pub get`
 A new Flutter project.
+
+- hot reload: r 
+- hot restart: shift + R
+- full restart: CTRL + C 
+- genymotion.com/personal-use - emulador 
+
+
+
+
+
 
 ## Getting Started
 
