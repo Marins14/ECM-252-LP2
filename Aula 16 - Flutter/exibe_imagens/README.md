@@ -10,8 +10,12 @@ A new Flutter project.
 
 - para requisições flutter pub add http
 
+# SALVAR COMMIT VIA CODE 
+````
+git config --global core.editor "code --wait"
 
-
+```
+# GENYMOTION -> Instalar https://www.genymotion.com/personal-use/
 
 ## Getting Started
 
