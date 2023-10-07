@@ -18,4 +18,3 @@ class ImageList extends StatelessWidget {
         }); 
     }
 }
-
