@@ -18,4 +18,4 @@ class Bloc with Validators{
   }
 }
 
-final bloc = Bloc();
+//final bloc = Bloc(); // Singleton - Apenas uma instancia do bloc não é mais necessários, pois o bloc está sendo injetado no app.dart
