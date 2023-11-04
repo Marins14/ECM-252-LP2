@@ -16,7 +16,15 @@ mixin Validators {
       // Usar regExp para verificar se a password contem
       // Pelo menos uma maiuscula
       RegExp exp = RegExp("[A-Z]+");
-      //if (!exp.hasMatch(input)) -> Continuar a partir daqui para validar a senha
+      if (!exp.hasMatch(password)) {
+        sink.addError('A senha deve conter pelo menos uma letra maiúscula');
+        return;
+      } else if (password.length < 8) {
+        sink.addError('A senha deve conter pelo menos 8 caracteres');
+        return;
+      } else {
+        sink.add(password);
+      }
       // Pelo menos um numero
       // Pelo menos um caracter especial
       // Pelo menos 8 caracteres
