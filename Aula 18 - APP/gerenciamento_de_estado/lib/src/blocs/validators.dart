@@ -31,6 +31,16 @@ mixin Validators {
       //RegExp exp = RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[!@#\$%^&*])(?=.{8,})");
     },
   );
+  final validate_Name = StreamTransformer<String, String>.fromHandlers(
+    handleData: (name, sink) {
+      if (name.length < 3) {
+        sink.addError('O nome deve conter pelo menos 3 caracteres');
+        return;
+      } else {
+        sink.add(name);
+      }
+    },
+  );
 }
 
 // Exemplos regExp

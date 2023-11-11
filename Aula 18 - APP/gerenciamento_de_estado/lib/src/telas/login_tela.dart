@@ -10,6 +10,7 @@ class LoginTela extends StatelessWidget {
       margin: EdgeInsets.all(28),
       child: Column(
         children: [
+          nameField(bloc),
           emailField(bloc),
           passwordField(bloc),
           Row(children: [
@@ -23,13 +24,30 @@ class LoginTela extends StatelessWidget {
     );
   }
 
+  Widget nameField(Bloc bloc){
+    return StreamBuilder(
+      stream: bloc.name,
+      builder: (context, AsyncSnapshot<String> snapshot) {
+        return TextField(
+          onChanged: bloc.changeName,
+          keyboardType: TextInputType.name,
+          decoration: InputDecoration(
+            hintText: 'Nome',
+            labelText: 'Digite seu nome',
+            errorText: snapshot.error?.toString()
+          ),
+        );
+      },
+    );
+  }
+
   Widget emailField(Bloc bloc) {
     return StreamBuilder(
       stream: bloc.email,
       builder: (context, AsyncSnapshot<String> snapshot) {
         return TextField(
             onChanged: (newValue) {
-              bloc.chanceEmail(newValue);
+              bloc.changeEmail(newValue);
             },
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
@@ -39,7 +57,8 @@ class LoginTela extends StatelessWidget {
                 //errorText: snapshot.error.toString() == 'null' ? null : snapshot.error.toString()
                 errorText: snapshot.error
                     ?.toString() //outra forma de fazer a mesma coisa
-                ));
+              )
+        );
       },
     );
     // return TextField(
@@ -53,7 +72,7 @@ class LoginTela extends StatelessWidget {
         stream: bloc.password,
         builder: (context, AsyncSnapshot<String> snapshot) => TextField(
               onChanged:
-                  bloc.chancePassword, //mais uma forma de fazer a mesma coisa
+                  bloc.changePassword, //mais uma forma de fazer a mesma coisa
               obscureText: true,
               decoration: InputDecoration(
                   hintText: 'Senha',
@@ -62,16 +81,15 @@ class LoginTela extends StatelessWidget {
                   errorText: snapshot.error.toString() == 'null'
                       ? null
                       : snapshot.error.toString()),
-            ));
-    // return TextField(
+          ));
   }
   
   Widget submitButton(Bloc bloc) {
     return StreamBuilder(
-      stream: bloc.email,
-      builder: (context, AsyncSnapshot<String> snapshot) {
+      stream: bloc.emailNameAndPasswordOk,
+      builder: (context, AsyncSnapshot<bool> snapshot) {
         return ElevatedButton(
-          onPressed: snapshot.hasError ? null : () {},
+          onPressed: snapshot.hasData ? () => bloc.subimitForm(context) : null,
           child: Text('Entrar'),
         );
       },
