@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import '../blocs/bloc.dart';
 import '../models/contato_model.dart';
@@ -13,17 +15,16 @@ class ContatosWidget extends StatelessWidget {
         margin: EdgeInsets.all(20),
         child: Column(children: <Widget>[
           nomeField(),
-          Text('numeroField()'),
+          numeroField(),
           Container(
               margin: EdgeInsets.only(top: 12),
               child: Row(
                 children: <Widget>[
-                  Expanded(
-                    child: Text('submitButton()') //submitButton(),
-                  )
+                  Expanded(child: submitButton() //submitButton(),
+                      )
                 ],
               )),
-          Text('contatosList()')
+          contatosList()
         ]));
   }
 
@@ -32,7 +33,7 @@ class ContatosWidget extends StatelessWidget {
       stream: bloc.nome,
       builder: (context, AsyncSnapshot<String> snapshot) {
         return TextField(
-          onChanged: (valorDigitado){
+          onChanged: (valorDigitado) {
             bloc.changeNome(valorDigitado);
             _nomeAtual = valorDigitado;
           },
@@ -40,11 +41,80 @@ class ContatosWidget extends StatelessWidget {
           decoration: InputDecoration(
               labelText: 'Nome',
               hintText: 'Digite o nome do contato',
-              errorText: snapshot.hasError? '${snapshot.error}' : null),
+              errorText: snapshot.hasError ? '${snapshot.error}' : null),
         );
       },
     );
   }
 
-  //Widget numeroField() {}
+  Widget numeroField() {
+    return StreamBuilder(
+      stream: bloc.numero,
+      builder: (context, AsyncSnapshot<String> snapshot) {
+        return TextField(
+          onChanged: (valorDigitado) {
+            bloc.changeNumero(valorDigitado);
+            _numeroAtual = valorDigitado;
+          },
+          keyboardType: TextInputType.phone,
+          decoration: InputDecoration(
+              labelText: 'Número',
+              hintText: 'Digite o número no formato (xx) xxxxx-xxxx',
+              errorText: snapshot.hasError ? '${snapshot.error}' : null),
+        );
+      },
+    );
+  }
+
+  Widget submitButton() {
+    return StreamBuilder(
+      stream: bloc.nameAndNumberOk,
+      builder: (context, AsyncSnapshot<bool> snapshot) {
+        return ElevatedButton(
+            onPressed: snapshot.hasData
+                ? () => bloc.adicionarContato(Contato(_nomeAtual, _numeroAtual))
+                : null,
+            child: Text('Adicionar'));
+      },
+    );
+  }
+
+  // Widget contatosList() {
+  //   return StreamBuilder(
+  //     stream: bloc.contato,
+  //     builder: (context, AsyncSnapshot<List<Contato>> snapshot) {
+  //       return ListView.builder(
+  //         //padding: EdgeInsets.all(12),
+  //         itemCount: snapshot.hasData ? snapshot.data!.length : 0,
+  //         itemBuilder: (context, index) {
+  //           return Container(
+  //             margin: EdgeInsets.only(bottom: 12),
+  //             child: ContatoWidget(
+  //                 snapshot.data![index].nome, snapshot.data![index].numero
+  //             ),
+  //           );
+  //         },
+  //       );
+  //     },
+  //   );
+  // }
+
+  //Solução com o Column
+  Widget contatosList() {
+    return Container(
+        margin: EdgeInsets.only(top: 12),
+        child: StreamBuilder(
+          stream: bloc.contato,
+          builder: (context, AsyncSnapshot<List<Contato>> snapshot) {
+            return Column(
+              children: snapshot.hasData
+                  ? snapshot.data!
+                      .map((contato) =>
+                          ContatoWidget(contato.nome, contato.numero))
+                      .toList()
+                  : [],
+            );
+          },
+        ));
+  }
 }
